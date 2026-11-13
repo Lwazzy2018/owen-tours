@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Pure business rules and entities. No NuGet packages on purpose:
+       everything here can be compiled and unit-tested anywhere. -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>OwenTours.Domain</RootNamespace>
+  </PropertyGroup>
+</Project>

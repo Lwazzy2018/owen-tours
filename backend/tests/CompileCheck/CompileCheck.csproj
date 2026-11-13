@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Type-checks the Application/Infrastructure/Api code against small stand-ins for NuGet packages
+       (EfCoreStubs.cs etc.) where NuGet isn't available. Never shipped; not needed with normal NuGet access. -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <NoWarn>$(NoWarn);CS1591;CS8019</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <ProjectReference Include="..\..\src\OwenTours.Domain\OwenTours.Domain.csproj" />
+    <Compile Include="..\..\src\OwenTours.Application\**\*.cs" Exclude="..\..\src\OwenTours.Application\obj\**;..\..\src\OwenTours.Application\bin\**" Link="App\%(RecursiveDir)%(Filename)%(Extension)" />
+    <Compile Include="..\..\src\OwenTours.Infrastructure\Storage\*.cs;..\..\src\OwenTours.Infrastructure\Payments\*.cs;..\..\src\OwenTours.Infrastructure\Notifications\*.cs;..\..\src\OwenTours.Infrastructure\Persistence\UserDirectory.cs" Link="Infra\%(Filename)%(Extension)" />
+  </ItemGroup>
+</Project>

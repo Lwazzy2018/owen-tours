@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Runs the same xUnit test files WITHOUT NuGet (tiny xUnit stand-in in XunitShim.cs).
+       Only needed where NuGet is unavailable; normally use `dotnet test`. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\OwenTours.Domain\OwenTours.Domain.csproj" />
+    <Compile Include="..\OwenTours.Domain.Tests\*.cs" Link="Tests\%(Filename)%(Extension)" />
+    <Compile Include="..\..\src\OwenTours.Infrastructure\Payments\PayFastSignature.cs" Link="Linked\PayFastSignature.cs" />
+  </ItemGroup>
+</Project>

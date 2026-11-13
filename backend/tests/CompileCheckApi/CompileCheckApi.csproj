@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <!-- Type-checks the API controllers (Web SDK implicit usings, like the real API project). -->
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CompileCheck\CompileCheck.csproj" />
+    <Compile Include="..\..\src\OwenTours.Api\Controllers\*.cs;..\..\src\OwenTours.Api\Auth\*.cs;..\..\src\OwenTours.Api\Infrastructure\*.cs" Link="Api\%(Filename)%(Extension)" />
+  </ItemGroup>
+</Project>
